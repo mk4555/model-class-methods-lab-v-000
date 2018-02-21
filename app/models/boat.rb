@@ -4,7 +4,7 @@ class Boat < ActiveRecord::Base
   has_many    :classifications, through: :boat_classifications
 
   def first_five
-    where()
+    where("boat_id <= ?", 5)
   end
 
   def dinghy
@@ -24,4 +24,6 @@ class Boat < ActiveRecord::Base
 
   def with_three_classifications
   end
+
+
 end
